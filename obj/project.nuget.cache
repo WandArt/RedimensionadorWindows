@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "D2vJo2fYGlnalAt4DOe0CXjV8Q0S2U9Y0sX5sywvEbdNNrDldzt6dmT4UY08eoyqyxDtdG868iK4Nrg1MEr6kQ==",
+  "success": true,
+  "projectFilePath": "/home/wanderson/Desenvolvedor_Dotnet/Atividades/Atividades.csproj",
+  "expectedPackageFiles": [
+    "/home/wanderson/.nuget/packages/microsoft.win32.systemevents/7.0.0/microsoft.win32.systemevents.7.0.0.nupkg.sha512",
+    "/home/wanderson/.nuget/packages/system.drawing.common/7.0.0/system.drawing.common.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
