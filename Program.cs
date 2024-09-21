@@ -43,7 +43,10 @@ namespace Atividades
                 Directory.CreateDirectory(diretorio_finalizados);
             }
             #endregion
-
+            FileStream fileStream;
+            FileInfo fileInfo;
+            string caminho;
+            string caminhoFinalizado;
             while (true)
             {
                 //Projeto olhar para a pasta de entrada
@@ -56,23 +59,23 @@ namespace Atividades
 
                 foreach (var arquivo in arquivosEntrada)
                 {
-                    FileStream fileStream = new FileStream(arquivo, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
-                    FileInfo fileInfo = new FileInfo(arquivo);
+                    fileStream = new FileStream(arquivo, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+                    fileInfo = new FileInfo(arquivo);
 
-                    string caminho = Environment.CurrentDirectory + @"\" + diretorio_redimensionados + @"\"
-                    + fileInfo.Name + DateTime.Now.Millisecond.ToString();
+                    caminho = Environment.CurrentDirectory + @"\" + diretorio_redimensionados + @"\"
+                    + DateTime.Now.Millisecond.ToString() + "_" + fileInfo.Name;
 
                     //Redimenisona
                     Redimensionador(Image.FromStream(fileStream), novaAltura, diretorio_redimensionados);
 
                     //fecha o arquivo
                     fileStream.Close();
-                    string caminhoFinalizado = Environment.CurrentDirectory + @"\" + diretorio_finalizados;
-                    //Copia os reimenisonados para a pasta de redimensionados
+
+                    //Move arquivos de entrada para a pasta de finalizados
+                    caminhoFinalizado = Environment.CurrentDirectory + @"\" + diretorio_finalizados;
                     fileInfo.MoveTo(caminhoFinalizado);
 
 
-                    //Move arquivos de entrada para a pasta de finalizados
                 }
                 Thread.Sleep(new TimeSpan(0, 0, 5));
             }
